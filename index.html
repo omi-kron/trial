@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Page</title>
+    <style>
+        body {
+            background-image: url("");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #messageBox {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function setBackgroundImage() {
+            var currentTime = new Date().toLocaleTimeString();
+            var imageUrl = ""; // Add your dynamic image URL here
+            
+            document.body.style.backgroundImage = "url('" + imageUrl + "')";
+            document.getElementById("currentTime").innerHTML = "Current Time: " + currentTime;
+        }
+        
+        function sendEmail() {
+            var message = document.getElementById("message").value;
+            var email = "kathalkarom47@gmail.com";
+            
+            var mailtoLink = "mailto:" + email + "?subject=Message&body=" + encodeURIComponent(message);
+            
+            window.open(mailtoLink);
+        }
+    </script>
+</head>
+<body onload="setBackgroundImage()">
+    <h1>Hello</h1>
+    <p id="currentTime"></p>
+    
+    <div id="messageBox">
+        <label for="message">Message:</label>
+        <input type="text" id="message" placeholder="Enter your message">
+        <button onclick="sendEmail()">Send Email</button>
+    </div>
+</body>
+</html>
